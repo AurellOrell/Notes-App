@@ -9,7 +9,6 @@ A simple web application for managing notes using Node.js, EJS, MySQL, and Boots
 - [Installation](#installation)
 - [Usage](#usage)
 - [Dependencies](#dependencies)
-- [License](#license)
 
 ## Description
 
@@ -60,7 +59,7 @@ This project is a basic CRUD (Create, Read, Update, Delete) application for mana
     npm start
     ```
 
-2. Open your web browser and navigate to `http://localhost:3000` to access the application.
+2. Open your web browser and navigate to `http://localhost:8000` to access the application.
 
 3. You can now perform CRUD operations on notes using the web interface.
 
@@ -72,9 +71,6 @@ This project is a basic CRUD (Create, Read, Update, Delete) application for mana
 - MySQL
 - Bootstrap
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
 
 ---
 
