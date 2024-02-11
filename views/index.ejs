@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Notes</title>
+    <title>Notes App</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <script
       src="https://kit.fontawesome.com/69a4d39991.js"
       crossorigin="anonymous"
@@ -30,12 +31,10 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body style="background-color: #f9f7f0">
-    <nav
-      class="navbar navbar-expand-lg shadow"
-      style="background-color: #a4b9e8"
-    >
-      <div class="container-fluid mx-5">
+  <body style="background-color: #eeeeee">
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg shadow">
+      <div class="container mx-5">
         <a class="navbar-brand fw-bold" href="#">
           <i class="fa-solid fa-book"></i> <%= title %>
         </a>
@@ -66,7 +65,8 @@
               ></a>
             </li>
           </ul>
-          <!-- <form action="/search" method="get" class="d-flex" role="search">
+          <!-- search -->
+          <form action="/search" method="get" class="d-flex" role="search">
             <input
               class="form-control me-2"
               type="search"
@@ -74,26 +74,25 @@
               aria-label="Search"
               name="search"
             />
-            <button class="btn btn-outline-success" type="submit">
+            <button class="btn btn-success" type="submit">
               <i class="fa fa-search" aria-hidden="true"></i>
             </button>
-          </form> -->
+          </form>
         </div>
       </div>
     </nav>
+    <!-- nav end -->
 
-    <!-- isi -->
-    <div class="container-md m-5">
+    <!-- main -->
+    <div class="content container-md m-5">
       <div class="row">
         <% for (let user of users) { %>
         <div class="col mb-5 mx-2 p-0 rounded-4 shadow">
-          <div
-            class="text-dark p-3 rounded-top"
-            style="background-color: #a4b9e8"
-          >
+          <div class="text-dark p-3">
             <div class="d-flex justify-content-between align-items-center">
               <h1 class="fw-bold"><%= user.title %></h1>
               <div class="d-flex">
+                <!-- action -->
                 <button
                   type="button"
                   class="btn btn-warning btn-sm mx-2"
@@ -110,19 +109,18 @@
                 >
                   <i class="fa-solid fa-trash"></i>
                 </button>
+                <!-- action end -->
               </div>
             </div>
-            <p><%= user.func %></p>
-          </div>
-          <div class="p-3">
-            <p class="fw-bold">Contoh:</p>
-            <%= user.exam %>
+            <p class="opacity-75"><%= user.func %></p>
+            <hr class="divider" />
+            <p><%= user.exam %></p>
           </div>
         </div>
         <% } %>
       </div>
 
-      <!-- modal plus -->
+      <!-- modal Create -->
       <div
         class="modal fade"
         id="exampleModal"
@@ -132,7 +130,7 @@
       >
         <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-header" style="background-color: #a4b9e8">
+            <div class="modal-header">
               <h3 class="fw-bold modal-title" id="exampleModalLabel">
                 New Note
               </h3>
@@ -146,7 +144,9 @@
             <div class="modal-body">
               <form action="/tambah" method="post">
                 <div class="mb-3">
-                  <label for="title" class="col-form-label">Title:</label>
+                  <label for="title" class="col-form-label fw-semibold"
+                    >Title:</label
+                  >
                   <input
                     type="text"
                     class="form-control"
@@ -156,7 +156,9 @@
                 </div>
 
                 <div class="mb-3">
-                  <label for="func" class="col-form-label">Function:</label>
+                  <label for="func" class="col-form-label fw-semibold"
+                    >Function:</label
+                  >
                   <input
                     type="text"
                     class="form-control"
@@ -166,7 +168,9 @@
                 </div>
 
                 <div class="mb-3">
-                  <label for="exam" class="col-form-label">Example:</label>
+                  <label for="exam" class="col-form-label fw-semibold"
+                    >Example:</label
+                  >
                   <textarea
                     class="form-control"
                     name="exam"
@@ -179,7 +183,7 @@
                     class="btn btn-secondary"
                     data-bs-dismiss="modal"
                   >
-                    Clear
+                    Close
                   </button>
                   <button type="submit" class="btn btn-primary">
                     Send Note
@@ -192,8 +196,7 @@
       </div>
 
       <% for (let user of users) { %>
-      <!-- Edit Modal -->
-
+      <!-- Update Modal -->
       <div
         class="modal fade"
         id="editModal<%= user.id %>"
@@ -203,7 +206,7 @@
       >
         <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-header" style="background-color: #a4b9e8">
+            <div class="modal-header">
               <h3 class="fw-bold modal-title" id="exampleModalLabel">
                 Edit Note
               </h3>
@@ -223,7 +226,9 @@
                   value="<%= user.id %>"
                 />
                 <div class="mb-3">
-                  <label for="title" class="col-form-label">Title:</label>
+                  <label for="title" class="col-form-label fw-semibold"
+                    >Title:</label
+                  >
                   <input
                     type="text"
                     class="form-control"
@@ -235,7 +240,9 @@
                 </div>
 
                 <div class="mb-3">
-                  <label for="func" class="col-form-label">Function:</label>
+                  <label for="func" class="col-form-label fw-semibold"
+                    >Function:</label
+                  >
                   <input
                     type="text"
                     class="form-control"
@@ -247,7 +254,9 @@
                 </div>
 
                 <div class="mb-3">
-                  <label for="exam" class="col-form-label">Example:</label>
+                  <label for="exam" class="col-form-label fw-semibold"
+                    >Example:</label
+                  >
                   <textarea class="form-control" id="exam" name="exam" required>
 <%= user.exam %></textarea
                   >
@@ -280,7 +289,7 @@
       >
         <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-header" style="background-color: #a4b9e8">
+            <div class="modal-header">
               <h1 class="modal-title fs-5" id="exampleModalLabel">Delete</h1>
               <button
                 type="button"
