@@ -28,7 +28,7 @@ db.connect((err) => {
     const sql = `SELECT * FROM note`;
     db.query(sql, (err, results) => {
       const users = JSON.parse(JSON.stringify(results));
-      res.render("index", { users: users, title: "Notes" });
+      res.render("index", { users: users, title: "Note App" });
     });
   });
 
@@ -75,20 +75,6 @@ db.connect((err) => {
       res.redirect("/");
     });
   });
-
-  // search
-  // app.get("/search", (req, res) => {
-  //   const searchTerm = req.query.search;
-  //   const sql = `SELECT * FROM note WHERE title LIKE ? OR func LIKE ? OR exam LIKE ?`;
-  //   db.query(
-  //     sql,
-  //     [`%${searchTerm}%`, `%${searchTerm}%`, `%${searchTerm}%`],
-  //     (err, results) => {
-  //       if (err) throw err;
-  //       res.redirect("/", { users: users });
-  //     }
-  //   );
-  // });
 });
 
 app.listen(8000, () => {
